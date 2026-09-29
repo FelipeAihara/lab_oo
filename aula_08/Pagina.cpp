@@ -10,6 +10,6 @@ Pagina::~Pagina() {
 }
 
 void Pagina::imprimir() {
-    cout << "Nome: " << getNome() << " - Proprietario: "
+    cout << "Nome: " << getNome() << " - id: " << this->getId() << " - Proprietario: "
         << proprietario->getNome() << endl;
 }

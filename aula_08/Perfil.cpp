@@ -1,12 +1,16 @@
 #include "Perfil.h"
 
+int Perfil::idGlobal = 0;
+
 Perfil::Perfil(string nome, int maximo) {
+  Perfil::idGlobal++;
+  this->id = idGlobal;
   this->nome = nome;
   this->maximo = maximo;
-  quantidadeDeContatos = 0;
-  quantidadeDePostagens = 0;
-  contatos = new Perfil*[maximo];
-  postagens = new Postagem*[maximo];
+  this->quantidadeDeContatos = 0;
+  this->quantidadeDePostagens = 0;
+  this->contatos = new Perfil*[maximo];
+  this->postagens = new Postagem*[maximo];
 }
 
 // Destrutor
@@ -78,20 +82,48 @@ bool Perfil::publicar(string texto, int data) {
 //     } else cout << "Sem contatos " << endl;
 // }
 
+// void Perfil::imprimir() {
+//   cout << endl << "Nome: " << nome << endl;
+//   cout << "Numero de postagens feitas: " << quantidadeDePostagens << endl;
+//   for (int i = 0; i < quantidadeDePostagens; i++)
+//     cout << "Postagens na data: " << postagens[i]->getData()
+//          << " - Texto: " << postagens[i]->getTexto() << endl;
+//   if (quantidadeDeContatos == 0)
+//     cout << "Sem contatos " << endl;
+//   else {
+//     for (int i = 0; i < quantidadeDeContatos; i++) {
+//       for (int j = 0; j < contatos[i]->getQuantidadeDePostagens(); j++)
+//         cout << "Postagens na data " << contatos[i]->getPostagens()[j]->getData()
+//              << " do contato "<< contatos[i]->getNome()
+//              << " - Texto: " << contatos[i]->getPostagens()[j]->getTexto() << endl;
+//     }
+//   }
+// }
+
 void Perfil::imprimir() {
-  cout << endl << "Nome: " << nome << endl;
+  cout << endl << "Nome: " << nome << " - id: " << id << endl;
   cout << "Numero de postagens feitas: " << quantidadeDePostagens << endl;
   for (int i = 0; i < quantidadeDePostagens; i++)
-    cout << "Postagens na data: " << postagens[i]->getData()
+    cout << "Postagens na data " << postagens[i]->getData()
          << " - Texto: " << postagens[i]->getTexto() << endl;
   if (quantidadeDeContatos == 0)
     cout << "Sem contatos " << endl;
   else {
-    for (int i = 0; i < quantidadeDeContatos; i++) {
-      for (int j = 0; j < contatos[i]->getQuantidadeDePostagens(); j++)
-        cout << "Postagens na data " << contatos[i]->getPostagens()[j]->getData()
-             << " do contato "<< contatos[i]->getNome()
-             << " - Texto: " << contatos[i]->getPostagens()[j]->getTexto() << endl;
+    for(int i = 0; i < quantidadeDeContatos; i++) {
+      for(int j = 0; j < contatos[i]->getQuantidadeDePostagens(); j++)
+        cout << "Postagens na data "
+             << contatos[i]->getPostagens()[j]->getData()
+             << " do contato " << contatos[i]->getNome()
+             << " - Texto: " << contatos[i]->getPostagens()[j]->getTexto()
+             << endl;
     }
   }
+}
+
+int Perfil::getId() {
+  return this->id;
+}
+
+int Perfil::getUltimoId() {
+  return Perfil::idGlobal;
 }

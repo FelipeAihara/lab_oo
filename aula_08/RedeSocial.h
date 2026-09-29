@@ -4,7 +4,7 @@
 #include "Perfil.h"
 #include "PessoaVerificada.h"
 #include "Pagina.h"
-#include "PessoaNaoVerificada.h"
+#include "Pessoa.h"
 #include <iostream>
 
 using namespace std;

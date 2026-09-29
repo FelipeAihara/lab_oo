@@ -31,7 +31,23 @@ bool RedeSocial::adicionar(Perfil* perfil) {
   return true;
 }
 
-void RedeSocial::imprimir() {
+// void RedeSocial::imprimir() {
+//   cout << "==================================" << endl;
+//   cout << "Rede Social: " << quantidadeDePerfis << " perfis" << endl;
+//   cout << "==================================" << endl;
+//   if (quantidadeDePerfis == 0){
+//     cout << "Sem perfis" << endl;
+//     cout << "==================================" << endl;
+//   } else {
+//     for (int i = 0; i < quantidadeDePerfis; i++){
+//       perfis[i]->imprimir();
+//       cout << "==================================" << endl;
+//     }
+//   }
+//   cout << endl;
+// }
+
+void RedeSocial::imprimir () {
   cout << "==================================" << endl;
   cout << "Rede Social: " << quantidadeDePerfis << " perfis" << endl;
   cout << "==================================" << endl;
@@ -47,17 +63,18 @@ void RedeSocial::imprimir() {
   cout << endl;
 }
 
+
 void RedeSocial::imprimirEstatisticas() {
-  int pv = 0, pnv = 0, pag = 0, perf = 0;
+  int pv = 0, pes = 0, pag = 0, perf = 0;
   for (int i = 0; i < this->quantidadeDePerfis; i++) {
     if (this->perfis[i] == dynamic_cast<PessoaVerificada*>(this->perfis[i])) pv++;
-    else if (this->perfis[i] == dynamic_cast<PessoaNaoVerificada*>(this->perfis[i])) pnv++;
+    else if (this->perfis[i] == dynamic_cast<Pessoa*>(this->perfis[i])) pes++;
     else if (this->perfis[i] == dynamic_cast<Pagina*>(this->perfis[i])) pag++;
     else if (this->perfis[i] == dynamic_cast<Perfil*>(this->perfis[i])) perf++;
   }
 
   cout << "PessoaVerificada: " << pv << endl;
-  cout << "PessoaNaoVerificada: " << pnv << endl;
+  cout << "Pessoa: " << pes << endl;
   cout << "Pagina: " << pag << endl;
   cout << "Perfil: " << perf << endl;
 }

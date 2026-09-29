@@ -1,8 +1,8 @@
 // NAO ALTERE O NOME DESTE ARQUIVO
 
 // NAO ALTERE ESTE ARQUIVO
-void teste();
+// void teste();
 
-int main() {
-    teste();
-}
+// int main() {
+//     teste();
+// }

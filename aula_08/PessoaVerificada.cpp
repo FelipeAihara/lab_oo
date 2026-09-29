@@ -1,10 +1,10 @@
 #include "PessoaVerificada.h"
 
-PessoaVerificada::PessoaVerificada(string nome, string email, int maximo) : Perfil(nome, maximo), email(email) {
+PessoaVerificada::PessoaVerificada(string nome, string email, int maximo) : Pessoa(nome, maximo), email(email) {
 
 }
 
-PessoaVerificada::PessoaVerificada(string nome, int maximo) : Perfil(nome, maximo) {
+PessoaVerificada::PessoaVerificada(string nome, int maximo) : Pessoa(nome, maximo) {
     this->email = "vazio@usp.br";
 }
 

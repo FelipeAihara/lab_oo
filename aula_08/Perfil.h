@@ -13,7 +13,7 @@ class Postagem;
 class Perfil {
 public:
     Perfil(string nome, int maximo);
-    virtual ~Perfil();
+    virtual ~Perfil() = 0;
 
     bool adicionarContato(Perfil *contato);
     bool adicionar(Perfil *contato);
@@ -28,9 +28,14 @@ public:
     int getQuantidadeDePostagens() { return quantidadeDePostagens; };
     Postagem** getPostagens() { return postagens; };
 
-    virtual void imprimir();
+    virtual void imprimir() = 0;
+
+    int getId();
+    static int getUltimoId();
 
 private:
+    static int idGlobal;
+    int id;
     int maximo;
     string nome;
 

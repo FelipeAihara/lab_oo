@@ -9,7 +9,7 @@ public:
     ~Pagina();
 
     PessoaVerificada* getProprietario() { return proprietario; };
-    void imprimir();
+    void imprimir() override;
 
 private:
     PessoaVerificada* proprietario;
